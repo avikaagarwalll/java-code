@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-        stage('Upload Artifacts to Nexus'){
+        /*stage('Upload Artifacts to Nexus'){
             
             steps{
 
@@ -68,7 +68,7 @@ pipeline {
                     version: '1.0.0'
                 }
             }
-        }
+        }*/
 
         stage("Docker Image Build"){
 
