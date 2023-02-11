@@ -43,5 +43,31 @@ pipeline {
                 }
             }
         }
+
+        stage('Upload Artifacts to Nexus'){
+            
+            steps{
+
+                script{
+
+                    nexusArtifactUploader artifacts: 
+                [
+                    [
+                    artifactId: 'springboot',
+                    classifier: '', 
+                    file: 'target/Thapar.jar', 
+                    type: 'jar'
+                    ]
+                ], 
+                    credentialsId: 'nexuscreds', 
+                    groupId: 'com.example', 
+                    nexusUrl: '52.205.2.40:8081', 
+                    nexusVersion: 'nexus3', 
+                    protocol: 'http', 
+                    repository: 'java-release', 
+                    version: '1.0.0'
+                }
+            }
+        }
     }
 }
